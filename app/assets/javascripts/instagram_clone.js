@@ -4,10 +4,5 @@ window.InstagramClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
   }
 };
-
-$(document).ready(function(){
-  InstagramClone.initialize();
-});

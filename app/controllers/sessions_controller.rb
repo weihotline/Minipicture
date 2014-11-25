@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    sleep 10
     @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
@@ -15,8 +16,8 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to user_url(@user)
     else
-      flash.now[:error] ||= []
-      flash.now[:error] << "Your username or password was incorrect."
+      flash.now[:errors] ||= []
+      flash.now[:errors] << "Your username or password was incorrect."
       render :new
     end
   end
