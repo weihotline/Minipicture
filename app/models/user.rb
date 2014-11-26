@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_reader :password
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence:   true,
                     format:     { with: VALID_EMAIL_REGEX },
@@ -9,7 +11,6 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  attr_reader :password
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def password=(password)
-    @passowrd = password
+    @password = password
     self.password_digest = BCrypt::Password.create(password)
   end
 

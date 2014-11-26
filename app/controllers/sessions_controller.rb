@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   before_action :require_signed_out!, only: [:new, :create]
 
   def new
+    @user = User.new
   end
 
   def create
-    sleep 10
     @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to user_url(@user)
     else
+      @user = User.new(username: params[:user][:username])
       flash.now[:errors] ||= []
       flash.now[:errors] << "Your username or password was incorrect."
       render :new
