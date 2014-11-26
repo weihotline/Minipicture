@@ -14,7 +14,6 @@
           <%= flash[:errors].join(".<br>").html_safe %>
         </div>
       <% end %>
-
       <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row-fluid user-row">
@@ -23,7 +22,6 @@
                 :class => "img-responsive") %>
           </div>
         </div>
-
         <div class="panel-body">
           <form accept-charset="UTF-8" role="form" class="form-signin"
                 action="<%= action_url %>"
@@ -32,31 +30,27 @@
               <input type="hidden"
                      name="authenticity_token"
                      value="<%= form_authenticity_token%>">
-
-                <label class="panel-login">
-                    <div class="login_result"></div>
-                </label>
-
-                <input type="text"
-                       class="form-control"
-                       placeholder="Username"
-                       name="user[username]"
-                       id="user_username"
-                       value="<%= @user.username %>">
-
-                <% if is_signup %>
-                  <%= input_for @user.email %>
-                <% end %>
-
-                <input type="password"
-                       class="form-control"
-                       placeholder="Password"
-                       name="user[password]"
-                       id="user_password" >
-                <br />
-                <input class="btn btn-lg btn-primary btn-block"
-                       type="submit" id="login"
-                       value="<%= button_label %>">
+              <label class="panel-login">
+                <div class="login_result"></div>
+              </label>
+              <input type="text"
+                     class="form-control"
+                     placeholder="Username"
+                     name="user[username]"
+                     id="user_username"
+                     value="<%= @user.username %>">
+              <% if is_signup %>
+                <%= input_for @user.email %>
+              <% end %>
+              <input type="password"
+                     class="form-control"
+                     placeholder="Password"
+                     name="user[password]"
+                     id="user_password" >
+              <br />
+              <input class="btn btn-lg btn-primary btn-block"
+                     type="submit" id="login"
+                     value="<%= button_label %>">
             </fieldset>
           </form>
         </div>

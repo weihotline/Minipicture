@@ -6,3 +6,88 @@ button#sign_up_btn {
   margin-right: 10px;
   font-size: 15px;
 }
+
+button.user_menus {
+  margin-top: 8px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.gly-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+
+.dropdown-menu > li > a {
+  color: #428BCA;
+}
+
+.dropdown ul.dropdown-menu {
+  border-radius: 4px;
+  box-shadow: none;
+  margin-top: 20px;
+  width: 150px;
+}
+
+.dropdown ul.dropdown-menu:before {
+  content: "";
+  border-bottom: 10px solid #FFF;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  z-index: 10;
+}
+
+.dropdown ul.dropdown-menu:after {
+  content: "";
+  border-bottom: 12px solid #CCC;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
+  position: absolute;
+  top: -12px;
+  right: 14px;
+  z-index: 9;
+}
