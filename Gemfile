@@ -34,7 +34,7 @@ gem 'ejs'
 # Other useful gems
 gem 'backbone-on-rails'
 gem 'newrelic_rpm'
-
+gem 'rails_12factor'
 group :development do
   # Run 'annotate' in Terminal to add helpful comments to models.
   gem 'annotate'
