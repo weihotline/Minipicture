@@ -35,6 +35,12 @@ gem 'backbone-on-rails'
 gem 'newrelic_rpm'
 gem 'rails_12factor'
 
+# Use figaro to access secret info in production
+gem 'figaro'
+
+# Use filepicker for uploading images
+gem 'filepicker-rails'
+
 group :development do
   # Run 'annotate' in Terminal to add helpful comments to models.
   gem 'annotate'
