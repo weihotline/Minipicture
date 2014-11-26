@@ -1,5 +1,5 @@
-<% action_url = (signup ? users_url : session_url) %>
-<% button_label = (signup ? "Sign up »" : "Log in »") %>
+<% action_url = (is_signup ? users_url : session_url) %>
+<% button_label = (is_signup ? "Sign up »" : "Log in »") %>
 
 <div class="container">
   <div class="row vertical-offset-100">
@@ -16,7 +16,7 @@
 
         <div class="panel-body">
           <form accept-charset="UTF-8" role="form" class="form-signin"
-                <%= set_action action_url %>
+                action="<%= action_url %>"
                 method="POST">
             <fieldset>
               <input type="hidden"
@@ -34,7 +34,7 @@
                        id="user_username"
                        value="<%= @user.username %>">
 
-                <% if signup %>
+                <% if is_signup %>
                   <%= input_for @user.email %>
                 <% end %>
 
@@ -46,7 +46,7 @@
                 <br />
                 <input class="btn btn-lg btn-primary btn-block"
                        type="submit" id="login"
-                       <%= set_value button_label %>>
+                       value="<%= button_label %>">
             </fieldset>
           </form>
         </div>
