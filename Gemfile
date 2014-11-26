@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta4'
 # Use sqlite3 as the database for Active Record
@@ -35,6 +34,7 @@ gem 'ejs'
 gem 'backbone-on-rails'
 gem 'newrelic_rpm'
 gem 'rails_12factor'
+
 group :development do
   # Run 'annotate' in Terminal to add helpful comments to models.
   gem 'annotate'

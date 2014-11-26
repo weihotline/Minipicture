@@ -1,13 +1,28 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Home</a>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <% unless signed_in? %>
+        <% if request.original_url == new_user_url %>
+          <%= link_to (header_button_tag "Log in"), new_session_url %>
+        <% else %>
+          <%= link_to (header_button_tag "Sign up"), new_user_url %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
 <% if signed_in? %>
   <%= current_user.username %>
   <%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-  <%= link_to "Sign In", new_session_url %>
-  <%= link_to "Sign Up", new_user_url %>
 <% end %>
 
 <% if flash[:errors] %>
-  <% flash[:errors].each do |msg| %>
-    <%= msg %>
-  <% end %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+<%= flash[:errors].join("<br>").html_safe %>
+</div>
 <% end %>
