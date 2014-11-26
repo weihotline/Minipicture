@@ -7,7 +7,7 @@
       <% if signed_in? %>
         <%= button_to "Sign out", session_url, method: :delete %>
       <% else %>
-        <% if request.original_url == new_user_url %>
+        <% if request.original_url.match(/(\/users)/) %>
           <%= link_to (header_button_tag "Log in"), new_session_url %>
         <% else %>
           <%= link_to (header_button_tag "Sign up"), new_user_url %>
