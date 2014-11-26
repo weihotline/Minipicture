@@ -4,7 +4,12 @@
       <a class="navbar-brand" href="#">Home</a>
     </div>
     <div class="nav navbar-nav navbar-right">
-      <% unless signed_in? %>
+      <% if signed_in? %>
+        <input type="filepicker" data-fp-mimetype="image/*"
+               name="image[url]" data-fp-button-text="Choose Image"
+               data-fp-button-class="btn btn-default">
+
+      <% else %>
         <% if request.original_url == new_user_url %>
           <%= link_to (header_button_tag "Log in"), new_session_url %>
         <% else %>
