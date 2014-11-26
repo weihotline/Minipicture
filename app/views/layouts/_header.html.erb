@@ -5,9 +5,7 @@
     </div>
     <div class="nav navbar-nav navbar-right">
       <% if signed_in? %>
-        <input type="filepicker" data-fp-mimetype="image/*"
-               name="image[url]" data-fp-button-text="Choose Image"
-               data-fp-button-class="btn btn-default">
+        <%= button_to "Sign out", session_url, method: :delete %>
       <% else %>
         <% if request.original_url == new_user_url %>
           <%= link_to (header_button_tag "Log in"), new_session_url %>
@@ -21,12 +19,10 @@
 
 <% if signed_in? %>
   <%= current_user.username %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
+
+        <input type="filepicker" data-fp-mimetype="image/*"
+               name="image[url]" data-fp-button-text="Choose Image"
+               data-fp-button-class="btn btn-default">
+
 <% end %>
 
-<% if flash[:errors] %>
-<div class="alert alert-warning alert-dismissible" role="alert">
-   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-<%= flash[:errors].join("<br>").html_safe %>
-</div>
-<% end %>

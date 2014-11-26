@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
   before_action :require_signed_in!, only: [:destroy]
   before_action :require_signed_out!, only: [:new, :create]
 
+  def index
+    redirect_to root_url
+  end
+
   def new
     @user = User.new
   end
@@ -14,7 +18,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
       @user = User.new(username: params[:user][:username])
       flash.now[:errors] ||= []
