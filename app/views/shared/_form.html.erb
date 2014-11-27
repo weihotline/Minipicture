@@ -1,5 +1,5 @@
-<% action_url = (is_signup ? users_url : session_url) %>
-<% button_label = (is_signup ? "Sign up »" : "Log in »") %>
+<% action_url = (is_sign_up ? users_url : session_url) %>
+<% button_label = (is_sign_up ? "Sign up »" : "Log in »") %>
 
 <div class="container">
   <div class="row vertical-offset-100">
@@ -35,12 +35,12 @@
               </label>
               <input type="text"
                      class="form-control"
-                     placeholder="Username"
-                     name="user[username]"
-                     id="user_username"
-                     value="<%= @user.username %>">
-              <% if is_signup %>
-                <%= input_for @user.email %>
+                     placeholder="Email"
+                     name="user[email]"
+                     id="user_email"
+                     value="<%= @user.email %>">
+              <% if is_sign_up %>
+                <%= input_for @user.username %>
               <% end %>
               <input type="password"
                      class="form-control"

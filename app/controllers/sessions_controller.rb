@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_credentials(
-      params[:user][:username],
+      params[:user][:email],
       params[:user][:password]
     )
 
@@ -16,9 +16,9 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to root_url
     else
-      @user = User.new(username: params[:user][:username])
+      @user = User.new(email: params[:user][:email])
       flash.now[:errors] ||= []
-      flash.now[:errors] << "Your username or password was incorrect."
+      flash.now[:errors] << 'Your email or password was incorrect.'
       render :new
     end
   end
