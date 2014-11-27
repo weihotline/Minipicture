@@ -26,7 +26,7 @@
               <li class="divider"></li>
               <li><a href="#">Likes <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
               <li class="divider"></li>
-              <li><a href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+              <li><a id="sign_out" href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
             </ul>
           </li>
         </ul>
@@ -40,8 +40,3 @@
     </div>
   </div>
 </nav>
-
-<% if signed_in? %>
-        <%= button_to "Sign out", session_url, method: :delete %>
-<% end %>
-

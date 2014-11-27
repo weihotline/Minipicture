@@ -22,3 +22,17 @@
 // require_tree ./collections
 // require_tree ./views
 // require_tree ./routers
+
+// Sign out event
+function SignOut(event) {
+  event.preventDefault();
+
+  $.ajax({
+    url: "/session",
+    type: 'DELETE',
+    dataType: 'json',
+    success: function(response) {
+      window.location.reload();
+    }
+  });
+}
