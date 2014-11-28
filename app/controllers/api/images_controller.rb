@@ -1,24 +1,30 @@
-class Api::ImagesController < ApplicationController
-  def index
-    @images = current_user.images
+module Api
+  class ImagesController < ApiController
+    def index
+      # eventually this will render follower images
+      # come back later
+      @images = Image.all
 
-    render json: @images
-  end
+      render json: @images
+    end
 
-  def create
-    @image = current_user.images.new(image_params)
+    def create
+      @image = current_user.images.new(image_params)
 
-    if @image.save
-      respond_to do |format|
-        format.json { render json: @image }
+      if @image.save
+        respond_to do |format|
+          # this render to ajax request in utils/helper_func.js
+          # come back later
+          format.json { render json: @image }
+        end
+      else
+        render json: @image.errors.full_messages
       end
-    else
-      render json: @image.errors.full_messages
     end
-  end
 
-  private
-    def image_params
-      params.require(:image).permit(:image_url)
-    end
+    private
+      def image_params
+        params.require(:image).permit(:image_url)
+      end
+  end
 end
