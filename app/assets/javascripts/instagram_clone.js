@@ -1,4 +1,4 @@
-window.InstagramCloneProj = {
+window.InstagramClone = {
   Models: {},
   Collections: {},
   Views: {},

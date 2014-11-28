@@ -15,7 +15,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
-//= require instagram_clone_proj
+//= require instagram_clone
 // require_tree ../templates
 // require_tree ./models
 // require_tree ./collections

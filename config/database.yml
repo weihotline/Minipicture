@@ -6,15 +6,15 @@ default: &default
 
 development:
   <<: *default
-  database: db/instagram_clone_proj_development
+  database: db/instagram_clone_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/instagram_clone_proj_test
+  database: db/instagram_clone_test
 
 production:
   <<: *default
-  database: db/instagram_clone_proj_production
+  database: db/instagram_clone_production
