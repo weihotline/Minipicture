@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Home</a>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <% if signed_in? %>
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <input type="filepicker" data-fp-mimetype="image/*"
+                   name="image[url]" data-fp-button-text="upload"
+                   data-fp-multiple="true" data-fp-services="COMPUTER,DROPBOX,FACEBOOK,GOOGLE_DRIVE,FLICKR,GMAIL,INSTAGRAM" data-fp-button-class="user_menus btn btn-default">
+            <button class="user_menus btn btn-default">
+                <i class="glyphicon glyphicon-refresh gly-spin"></i>
+            </button>
+            <button class="user_menus btn btn-default"
+                    data-toggle="dropdown">
+              <i class="glyphicon glyphicon-th-large gly-spin"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">Photos <span class="glyphicon glyphicon-picture pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+              <li class="divider"></li>
+              <li><a href="#">Likes <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+              <li class="divider"></li>
+              <li><a id="sign_out" href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+            </ul>
+          </li>
+        </ul>
+      <% else %>
+        <% if request.original_url.match(/(\/users)/) %>
+          <%= link_to (header_button_tag "Log in"), new_session_url %>
+        <% else %>
+          <%= link_to (header_button_tag "Sign up"), new_user_url %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>
