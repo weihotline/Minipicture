@@ -7,17 +7,12 @@
       <% if signed_in? %>
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <input type="filepicker" id="filepicker"
-                   name="image[image_url]"
-                   data-fp-mimetype="image/*"
-                   data-fp-button-text="upload"
-                   data-fp-multiple="true"
-                   data-fp-services="COMPUTER"
-                   data-fp-button-class="user_menus btn btn-default">
-            <button class="user_menus btn btn-default">
-                <i class="glyphicon glyphicon-refresh gly-spin"></i>
-            </button>
-            <button class="user_menus btn btn-default"
+            <button type="button" id="upload-image"
+                    class="user-menus btn btn-default"
+                    >upload</button>
+            <button class="user-menus btn btn-default">
+                <i class="glyphicon glyphicon-refresh gly-spin"></i></button>
+            <button class="user-menus btn btn-default"
                     data-toggle="dropdown">
               <i class="glyphicon glyphicon-th-large gly-spin"></i>
             </button>
@@ -30,7 +25,7 @@
               <li class="divider"></li>
               <li><a href="#">Likes <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
               <li class="divider"></li>
-              <li><a id="sign_out" href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+              <li><a id="sign-out" href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
             </ul>
           </li>
         </ul>

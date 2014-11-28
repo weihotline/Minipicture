@@ -3,6 +3,7 @@
   $(InstagramClone.initialize);
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
   $(function () {
-    $("#sign_out").on("click", SignOut);
+    $("#sign-out").on("click", signOut);
+    $("#upload-image").on("click", upload);
   });
 </script>
