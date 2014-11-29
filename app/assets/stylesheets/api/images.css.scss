@@ -1,6 +1,12 @@
 ul.images-index-items li {
   list-style-type: none;
-  float: left; //remove later
-  width: 100px; // 400px
-  height: 100px; //400px;
+  display: inline-block;
+  margin-right: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+img#fancybox-item {
+  width: 150px;
+  height: 150px;
 }
