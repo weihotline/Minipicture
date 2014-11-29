@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :images, inverse_of: :user
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :author_id,
+    primary_key: :id
+  )
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
