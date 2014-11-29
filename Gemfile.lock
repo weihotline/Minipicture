@@ -77,6 +77,8 @@ GEM
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.2.2)
+    fancybox2-rails (0.2.8)
+      railties (>= 3.1.0, < 5.0)
     figaro (1.0.0)
       thor (~> 0.14)
     filepicker-rails (1.2.0)
@@ -96,7 +98,6 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.3)
     multi_json (1.10.1)
-    newrelic_rpm (3.9.7.266)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -181,11 +182,11 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.0.0)
   ejs
+  fancybox2-rails
   figaro
   filepicker-rails
   jbuilder (~> 2.0)
   jquery-rails
-  newrelic_rpm
   pg
   pry-rails
   rails (= 4.1.8)

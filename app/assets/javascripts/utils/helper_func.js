@@ -20,8 +20,10 @@ function upload(event) {
       type: 'POST',
       data: { "image": { "image_url": blob.url } },
       dataType: 'json',
-      success: function (response) {
-        console.log(response);
+      success: function (image) {
+        InstagramClone.Collections.images.fetch();
+       // eventually use getOrFetch when finish json.jbuilder show page from each image
+       // InstagramClone.Collections.images.getOrFetch(image.id);
       }
     });
   }

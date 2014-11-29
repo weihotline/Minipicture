@@ -1,8 +1,6 @@
 ul.images-index-items li {
   list-style-type: none;
-  border: 2px dotted black;
-  img {
-    width: 250px;
-    height: 250px;
-  }
+  float: left; //remove later
+  width: 100px; // 400px
+  height: 100px; //400px;
 }
