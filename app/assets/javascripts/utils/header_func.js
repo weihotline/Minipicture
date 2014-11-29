@@ -1,4 +1,18 @@
-function signOut(event) {
+function refresh(event) {
+  var $refresh = $('button#refresh-feed > i');
+  $refresh.addClass("gly-spin");
+
+  InstagramClone.Collections.images.fetch({
+    success: function () {
+      // use setTimeout let user know it is fetching
+      setTimeout(function() {
+        $refresh.removeClass("gly-spin");
+      }, 2000);
+    }
+  });
+}
+
+function logout(event) {
   event.preventDefault();
 
   $.ajax({

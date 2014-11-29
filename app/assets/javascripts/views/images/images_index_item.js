@@ -10,6 +10,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
     });
 
     this.$el.html(content);
+
     return this;
   }
 })

@@ -3,7 +3,8 @@
   $(InstagramClone.initialize);
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
   $(function () {
-    $("#sign-out").on("click", signOut);
+    $("#sign-out").on("click", logout);
+    $("#refresh-feed").on("click", refresh);
     $("#upload-image").on("click", upload);
 
     $("a.fancybox-els").fancybox({
