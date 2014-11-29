@@ -7,7 +7,7 @@ function refresh(event) {
       // use setTimeout let user know it is fetching
       setTimeout(function() {
         $refresh.removeClass("gly-spin");
-      }, 2000);
+      }, 1000);
     }
   });
 }

@@ -2,6 +2,7 @@ ul.images-index-items li {
   list-style-type: none;
   display: inline-block;
   margin-right: 10px;
+  margin-bottom: 60px;
   width: 150px;
   height: 150px;
 }
@@ -13,12 +14,4 @@ img#fancybox-item {
 
 a.fancybox-els {
   margin-bottom: 0px;
-}
-
-button.image-menus {
-  margin-top: 4px;
-  margin-bottom: 40px;
-  margin-right: 10px;
-  border-radius: 20px;
-  height: 30px;
 }

@@ -1,3 +1,7 @@
+button {
+  transition: all .5s;
+}
+
 button#sign-up-btn {
   border-radius: 30px;
   width: 85px;
@@ -13,9 +17,12 @@ button.user-menus {
   margin-right: 10px;
 }
 
-
-button {
-  transition: all .5s;
+button.image-menus {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 10px;
+  border-radius: 20px;
+  height: 30px;
 }
 
 .btn:not(a) {
