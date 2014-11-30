@@ -28,6 +28,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
     event.preventDefault();
 
     var params = $(event.currentTarget).serializeJSON()["comment"];
+    $(event.currentTarget).find('input:text').val('');
     //...
     console.log(params);
   }

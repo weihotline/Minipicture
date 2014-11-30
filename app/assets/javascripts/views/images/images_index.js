@@ -6,6 +6,8 @@ InstagramClone.Views.ImagesIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addImagesIndexItem.bind(this));
   },
 
+  template: JST['images/index'],
+
   addImagesIndexItem: function (imagesIndexItem) {
     var imagesIndexItemView =
       new InstagramClone.Views.ImagesIndexItem({
@@ -14,8 +16,6 @@ InstagramClone.Views.ImagesIndex = Backbone.CompositeView.extend({
 
     this.addSubview(".images-index-items", imagesIndexItemView);
   },
-
-  template: JST['images/index'],
 
   render: function () {
     var content = this.template();

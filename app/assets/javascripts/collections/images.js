@@ -4,7 +4,8 @@ InstagramClone.Collections.Images = Backbone.Collection.extend({
   model: InstagramClone.Models.Image,
 
   comparator: function (image) {
-    return image.get('updated_at');
+    var date = new Date(image.get('created_at'));
+    return -date.getTime();
   },
 
   getOrFetch: function (id) {
