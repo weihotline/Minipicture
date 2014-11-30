@@ -2,10 +2,11 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
   tagName: "li",
 
-  template: JST['images/images_index_item'],
+  template: JST['images/index_item'],
 
   events: {
-    'click div#comments': "keepDropdownOpen"
+    'click div#comments': "keepDropdownOpen",
+    'submit form': "submit"
   },
 
   render: function () {
@@ -21,5 +22,13 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
   keepDropdownOpen: function(event) {
     event.preventDefault();
     event.stopPropagation();
+  },
+
+  submit: function(event) {
+    event.preventDefault();
+
+    var params = $(event.currentTarget).serializeJSON()["comment"];
+    //...
+    console.log(params);
   }
 })

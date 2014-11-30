@@ -15,7 +15,7 @@ module Api
 
       if @image.save
         respond_to do |format|
-          # this render to ajax request in utils/helper_func.js
+          # this render to ajax request in utils/callbacks.js
           # come back later
           format.json { render json: @image }
         end
