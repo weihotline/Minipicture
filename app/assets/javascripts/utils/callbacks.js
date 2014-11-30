@@ -4,7 +4,7 @@ function refresh(event) {
 
   InstagramClone.Collections.images.fetch({
     success: function () {
-      // use setTimeout let user know it is fetching
+      // setTimeout allows user to see the fetch effect
       setTimeout(function() {
         $refresh.removeClass("gly-spin");
       }, 1000);
@@ -28,26 +28,5 @@ function logout(event) {
 function upload(event) {
   event.preventDefault();
 
-  function success (blob) {
-    $.ajax({
-      url: '/api/images',
-      type: 'POST',
-      data: { "image": { "image_url": blob.url } },
-      dataType: 'json',
-      success: function (image) {
-        InstagramClone.Collections.images.fetch();
-       // eventually use getOrFetch when finish json.jbuilder show page from each image
-       // InstagramClone.Collections.images.getOrFetch(image.id);
-      }
-    });
-  }
-
-  function error (fperror) {
-    console.log(fperror.toString());
-  }
-
-  filepicker.pick({
-    mimetypes: 'image/*',
-    services: 'COMPUTER'
-  }, success, error);
+  $('#imageFormModal').modal('show');
 }

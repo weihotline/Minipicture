@@ -10,8 +10,6 @@ module Api
 
     def create
       @image = current_user.images.new(image_params)
-      # temporary title set
-      @image.title = "this is a title!"
 
       if @image.save
         respond_to do |format|
@@ -26,7 +24,7 @@ module Api
 
     private
       def image_params
-        params.require(:image).permit(:image_url)
+        params.require(:image).permit(:image_url, :title)
       end
   end
 end

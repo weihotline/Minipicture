@@ -9,7 +9,7 @@
   width: 150px;
 }
 
-.dropdown ul.dropdown-menu:before {
+.dropdown ul.dropdown-menu:before, div.dropdown-menu:before {
   content: "";
   border-bottom: 10px solid #FFF;
   border-right: 10px solid transparent;
@@ -20,7 +20,7 @@
   z-index: 10;
 }
 
-.dropdown ul.dropdown-menu:after {
+.dropdown ul.dropdown-menu:after, div.dropdown-menu:after {
   content: "";
   border-bottom: 12px solid #CCC;
   border-right: 12px solid transparent;

@@ -14,14 +14,18 @@
     <i class="glyphicon glyphicon-pencil"></i>
   </button>
   <div id="comments" class="dropdown-menu">
-    <form>
-      <input type="text"
-             class="form-control"
-             name="comment[content]"
-             placeholder="Write a comment..."/>
-      <input type="hidden"
-             name="comment[image_id]"
-             value="<%= image.escape('id') %>" />
-    </form>
+    <div>
+      <form>
+        <input type="text"
+               class="form-control"
+               placeholder="Write a comment..."
+               name="comment[content]"
+               value="" />
+        <input type="hidden"
+               name="comment[image_id]"
+               value="<%= image.escape('id') %>" />
+      </form>
+    </div>
+    <div class="divider"></div>
   </div>
 </div>

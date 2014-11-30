@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require jquery.serializejson
 //= require fancybox
-//= require bootstrap
 //= require underscore
 //= require backbone
 //= require instagram_clone
