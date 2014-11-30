@@ -17,13 +17,13 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
 
-    var imageTitle = $(event.currentTarget).serializeJSON()["image"].title;
+    var imageCaption = $(event.currentTarget).serializeJSON()["image"].caption;
 
     function success (blob) {
       $.ajax({
         url: '/api/images',
         type: 'POST',
-        data: { "image": { "image_url": blob.url, "title": imageTitle } },
+        data: { "image": { "image_url": blob.url, "caption": imageCaption } },
         dataType: 'json',
         success: function (image) {
           $(event.currentTarget).find('input:text').val('');

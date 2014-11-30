@@ -1,30 +1,24 @@
 <a class="thumbnail fancybox-els" rel="lightbox"
+   caption="<%= image.escape('caption')%>"
    href="<%= image.escape('image_url') %>">
   <img id="fancybox-item" class="img-responsive" alt=""
        src="<%= image.escape('image_url') %>" />
 </a>
 
-<div class="dropdown">
-  <button style="margin-left:30px;"
-          class="image-menus btn btn-default">
-    <i class="glyphicon glyphicon-heart"></i>
-  </button>
-  <button class="image-menus btn btn-default"
-          data-toggle="dropdown">
-    <i class="glyphicon glyphicon-pencil"></i>
-  </button>
-  <div id="comments" class="dropdown-menu">
-    <div>
-      <form>
-        <input type="text"
-               class="form-control"
-               placeholder="Write a comment..."
-               name="comment[content]" />
-        <input type="hidden"
-               name="comment[image_id]"
-               value="<%= image.escape('id') %>" />
-      </form>
+<button style="margin-left:30px;"
+        class="image-menus btn btn-default">
+  <i class="glyphicon glyphicon-heart"></i>
+</button>
+<button class="image-menus btn btn-default"
+        data-toggle="modal" href="#image-detail-<%= image.id %>">
+  <i class="glyphicon glyphicon-pencil"></i>
+</button>
+
+<div class="modal" id="image-detail-<%= image.id %>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"></div>
+      <div class="modal-body">Testing Testing</div>
     </div>
-    <div class="divider"></div>
   </div>
 </div>

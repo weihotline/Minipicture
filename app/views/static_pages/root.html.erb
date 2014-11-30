@@ -9,7 +9,13 @@
     $("#upload-image").on("click", upload);
 
     $("a.fancybox-els").fancybox({
-      type: 'image'
+      type: 'image',
+      helpers : {
+        title : { type : 'inside' }
+      },
+      beforeLoad: function() {
+        this.title = $(this.element).attr('caption');
+      }
     });
   });
 </script>

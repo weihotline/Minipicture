@@ -1,5 +1,6 @@
 module Api
   class ImagesController < ApiController
+
     def index
       # eventually this will render follower images
       # come back later
@@ -24,7 +25,7 @@ module Api
 
     private
       def image_params
-        params.require(:image).permit(:image_url, :title)
+        params.require(:image).permit(:image_url, :caption)
       end
   end
 end

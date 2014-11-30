@@ -1,13 +1,12 @@
 InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
+  initialize: function () {
+    this._addCommentFormView();
+  },
+
   tagName: "li",
 
   template: JST['images/index_item'],
-
-  events: {
-    'click div#comments': "keepDropdownOpen",
-    'submit form': "submit"
-  },
 
   render: function () {
     var content = this.template({
@@ -15,21 +14,16 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
     });
 
     this.$el.html(content);
+    this.attachSubviews();
 
     return this;
   },
 
-  keepDropdownOpen: function(event) {
-    event.preventDefault();
-    event.stopPropagation();
-  },
+  _addCommentFormView: function() {
+    var commentFormView = new InstagramClone.Views.CommentForm({
+      model: this.model
+    })
 
-  submit: function(event) {
-    event.preventDefault();
-
-    var params = $(event.currentTarget).serializeJSON()["comment"];
-    $(event.currentTarget).find('input:text').val('');
-    //...
-    console.log(params);
+    this.addSubview(".modal-header", commentFormView);
   }
 })
