@@ -26,7 +26,6 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
         data: { "image": { "image_url": blob.url, "caption": imageCaption } },
         dataType: 'json',
         success: function (image) {
-          $(event.currentTarget).find('input:text').val('');
           $('#image-form-modal').remove();
 
           InstagramClone.Collections.images.fetch();

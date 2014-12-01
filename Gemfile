@@ -34,6 +34,7 @@ gem 'ejs'
 gem 'backbone-on-rails'
 gem 'fancybox2-rails'
 gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 # Use figaro to access secret info in production
 gem 'figaro'
