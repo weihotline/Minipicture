@@ -1,7 +1,9 @@
 InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
   initialize: function () {
+    this.model.fetch();
     this._addCommentFormView();
+    this._addCommentsIndexView();
   },
 
   tagName: "li",
@@ -19,11 +21,20 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
     return this;
   },
 
-  _addCommentFormView: function() {
+  _addCommentFormView: function () {
     var commentFormView = new InstagramClone.Views.CommentForm({
-      model: this.model
+      collection: this.model.comments(),
+      image: this.model
     })
 
     this.addSubview(".modal-header", commentFormView);
+  },
+
+  _addCommentsIndexView: function () {
+    var commentsIndexView = new InstagramClone.Views.CommentsIndex({
+      collection: this.model.comments()
+    });
+
+    this.addSubview(".modal-body", commentsIndexView);
   }
 })

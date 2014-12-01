@@ -1,10 +1,23 @@
-ul.images-index-items li {
+ul.images-index-items > li {
   list-style-type: none;
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 60px;
   width: 150px;
   height: 150px;
+}
+
+ul.comments-index-items {
+  padding: 0px;
+}
+
+ul.comments-index-items > li {
+  list-style-type: none;
+  margin-bottom: 10px;
+
+  h5 {
+    margin: 0px;
+  }
 }
 
 img#fancybox-item {
@@ -18,4 +31,10 @@ a.fancybox-els {
 
 div.modal-header {
   border-bottom: 0px;
+}
+
+div.modal-body {
+  max-height: 460px;
+  overflow-y: auto;
+  margin-bottom: 10px;
 }

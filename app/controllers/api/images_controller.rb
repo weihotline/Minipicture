@@ -23,6 +23,18 @@ module Api
       end
     end
 
+    def show
+      @image = Image.find(params[:id])
+
+      # apply similar logic later:
+      # if @board.is_member?(current_user)
+
+      render :show
+      # else
+      #   render json: ["You aren't a follow of the author of this image"], status: 403
+      # end
+    end
+
     private
       def image_params
         params.require(:image).permit(:image_url, :caption)

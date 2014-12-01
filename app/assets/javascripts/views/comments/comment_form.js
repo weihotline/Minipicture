@@ -1,4 +1,7 @@
 InstagramClone.Views.CommentForm = Backbone.View.extend({
+  initialize: function (options) {
+    this.image = options.image;
+  },
 
   template: JST['comments/form'],
 
@@ -7,9 +10,7 @@ InstagramClone.Views.CommentForm = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({
-      image: this.model
-    });
+    var content = this.template();
 
     this.$el.html(content);
 
@@ -19,9 +20,14 @@ InstagramClone.Views.CommentForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
 
-    var params = $(event.currentTarget).serializeJSON()["comment"];
+    var commentContent = $(event.currentTarget).serializeJSON()["comment"].content;
     $(event.currentTarget).find('input:text').val('');
-    //...
-    console.log(params);
+
+    var params = {
+      content: commentContent,
+      image_id: this.image.id
+    }
+
+    this.collection.create(params, { wait: true });
   }
 });
