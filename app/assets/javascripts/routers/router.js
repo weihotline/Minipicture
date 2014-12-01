@@ -1,8 +1,5 @@
 InstagramClone.Routers.Router = Backbone.Router.extend({
   initialize: function () {
-    var imageFormView = new InstagramClone.Views.ImageForm;
-
-    $('#imageForm').html(imageFormView.render().$el);
     this.$rootEl = $('#content');
   },
 

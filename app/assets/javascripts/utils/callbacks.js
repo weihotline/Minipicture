@@ -28,5 +28,8 @@ function logout(event) {
 function upload(event) {
   event.preventDefault();
 
-  $('#imageFormModal').modal('show');
+  var imageFormView = new InstagramClone.Views.ImageForm;
+
+  $('#image-form').html(imageFormView.render().$el);
+  $('#image-form-modal').modal('show');
 }

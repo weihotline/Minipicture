@@ -2,13 +2,15 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.model.fetch();
-    this._addCommentFormView();
-    this._addCommentsIndexView();
   },
 
   tagName: "li",
 
   template: JST['images/index_item'],
+
+  events: {
+    "click button#image-detail": "toggleModal"
+  },
 
   render: function () {
     var content = this.template({
@@ -21,20 +23,19 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
     return this;
   },
 
-  _addCommentFormView: function () {
-    var commentFormView = new InstagramClone.Views.CommentForm({
-      collection: this.model.comments(),
-      image: this.model
-    })
+  toggleModal: function (event) {
+    event.preventDefault();
 
-    this.addSubview(".modal-header", commentFormView);
-  },
-
-  _addCommentsIndexView: function () {
-    var commentsIndexView = new InstagramClone.Views.CommentsIndex({
-      collection: this.model.comments()
+    var imageDetailView = new InstagramClone.Views.ImageDetail({
+      model: this.model
     });
 
-    this.addSubview(".modal-body", commentsIndexView);
+    this.$el.append(imageDetailView.render().$el);
+
+    // listen on closing modal
+    $("#image-detail-modal").on('hidden.bs.modal', function () {
+      $(this).remove();
+    });
+    $('#image-detail-modal').modal('show');
   }
 })

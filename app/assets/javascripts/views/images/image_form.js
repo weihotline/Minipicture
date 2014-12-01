@@ -27,11 +27,9 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
         dataType: 'json',
         success: function (image) {
           $(event.currentTarget).find('input:text').val('');
-          $('#imageFormModal').modal('hide');
+          $('#image-form-modal').remove();
 
           InstagramClone.Collections.images.fetch();
-         // eventually use getOrFetch when finish json.jbuilder show page from each image
-         // InstagramClone.Collections.images.getOrFetch(image.id);
         }
       });
     }
