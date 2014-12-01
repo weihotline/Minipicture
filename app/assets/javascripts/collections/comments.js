@@ -13,7 +13,7 @@ InstagramClone.Collections.Comments = Backbone.Collection.extend({
     var comments = this;
 
     if (!comment) {
-      comment = new InstagramClone.Collections.Comments({ id: id });
+      comment = new InstagramClone.Models.Comment({ id: id });
       comment.fetch({
         success: function () {
           comments.add(comment);
@@ -25,5 +25,4 @@ InstagramClone.Collections.Comments = Backbone.Collection.extend({
 
     return comment;
   }
-
 });
