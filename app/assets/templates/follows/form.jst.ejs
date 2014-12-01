@@ -1,0 +1,10 @@
+<h5><a href="#"><%= image.escape('author') %></a></h5>
+<form class="pull-right">
+  <input type="hidden" name="follow[follower_id]"
+         value="<%= image.escape('user_id') %>">
+
+  <button class="btn btn-default">
+    <i class="glyphicon glyphicon-plus-sign"></i>
+    Follow
+  </button>
+</form>

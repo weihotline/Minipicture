@@ -6,7 +6,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
   tagName: "li",
 
-  template: JST['images/index_item'],
+  template: JST['images/index_items'],
 
   events: {
     "click button#image-detail": "toggleModal"

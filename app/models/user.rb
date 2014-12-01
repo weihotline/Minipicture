@@ -7,17 +7,17 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 8, allow_nil: true }
-  validates :session_token, :email, :username, uniqueness: true
+  validates :session_token, :username, uniqueness: true
 
   after_initialize :ensure_session_token
 
+
+  has_many :in_follows, class_name: "Follow", foreign_key: :followee_id
+  has_many :out_follows, class_name: "Follow", foreign_key: :follower_id
+  has_many :followers, through: :in_follows, source: :follower
+  has_many :followees, through: :out_follows, source: :followee
   has_many :images, inverse_of: :user
-  has_many(
-    :comments,
-    class_name: "Comment",
-    foreign_key: :author_id,
-    primary_key: :id
-  )
+  has_many :comments, class_name: "Comment", foreign_key: :author_id
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     self.session_token = self.class.generate_session_token
     self.save!
     self.session_token
+  end
+
+  def follows?(user)
+    out_follows.exists?(followee_id: user.id)
   end
 
   private

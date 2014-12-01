@@ -21,6 +21,7 @@ InstagramClone.Views.CommentForm = Backbone.View.extend({
     event.preventDefault();
 
     var commentContent = $(event.currentTarget).serializeJSON()["comment"].content;
+    $(event.currentTarget).find('input:text').val('');
 
     var params = {
       content: commentContent,

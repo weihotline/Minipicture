@@ -13,6 +13,7 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
   _onRender: function () {
     this._addCommentFormView();
     this._addCommentsIndexView();
+    this._addFollowFormView();
   },
 
   _addCommentFormView: function () {
@@ -30,5 +31,13 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
     });
 
     this.addSubview(".modal-body", commentsIndexView);
+  },
+
+  _addFollowFormView: function () {
+    var followFormView = new InstagramClone.Views.FollowForm({
+      image: this.model
+    });
+
+    this.addSubview(".modal-header", followFormView);
   }
 });

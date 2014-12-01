@@ -8,7 +8,7 @@ InstagramClone.Views.CommentsIndexItem = Backbone.View.extend({
 
   className: "well well-sm",
 
-  template: JST["comments/index_item"],
+  template: JST["comments/index_items"],
 
   render: function () {
 
