@@ -2,9 +2,8 @@ module Api
   class ImagesController < ApiController
 
     def index
-      # eventually this will render follower images
-      # come back later
       @images = Image.order(:created_at).reverse_order.page(params[:page])
+      # @images = current_user.followee_images.page(params[:page])
 
       params[:page] = 1 if params[:page].nil?
       render :json => {
@@ -32,7 +31,7 @@ module Api
       if @image
         render :show
       else
-        render json: ["You aren't a follow of the author of this image"], status: 403
+        render json: ["You aren't a follower of the author of this image"], status: 403
       end
     end
 

@@ -29,5 +29,9 @@ InstagramClone.Views.CommentForm = Backbone.View.extend({
     }
 
     this.collection.create(params, { wait: true });
+
+    $(".modal-body").animate({
+      scrollTop: $(".modal-body").prop("scrollHeight")
+    }, 1500);
   }
 });

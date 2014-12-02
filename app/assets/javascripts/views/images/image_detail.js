@@ -12,17 +12,17 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
 
   _onRender: function () {
     this._addFollowFormView();
-    this._addCommentFormView();
     this._addCommentsIndexView();
+    this._addCommentFormView();
   },
 
-  _addCommentFormView: function () {
-    var commentFormView = new InstagramClone.Views.CommentForm({
-      collection: this.model.comments(),
-      image: this.model
-    })
+  _addFollowFormView: function () {
+    var followFormView = new InstagramClone.Views.FollowForm({
+      image: this.model,
+      collection: InstagramClone.Collections.followees
+    });
 
-    this.addSubview(".modal-header", commentFormView);
+    this.addSubview(".modal-header", followFormView);
   },
 
   _addCommentsIndexView: function () {
@@ -33,12 +33,12 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
     this.addSubview(".modal-body", commentsIndexView);
   },
 
-  _addFollowFormView: function () {
-    var followFormView = new InstagramClone.Views.FollowForm({
-      image: this.model,
-      collection: InstagramClone.Collections.followees
-    });
+  _addCommentFormView: function () {
+    var commentFormView = new InstagramClone.Views.CommentForm({
+      collection: this.model.comments(),
+      image: this.model
+    })
 
-    this.addSubview(".modal-header", followFormView);
+    this.addSubview(".modal-footer", commentFormView);
   }
 });

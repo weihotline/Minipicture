@@ -43,11 +43,16 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  # def followee_images
-  #   @images = Image
-  #     .joins("LEFT OUTER JOIN follows ON user_id = follows.followee_id")
-  #     .joins("users ON follows.follower_id = :id", self.id)
-  # end
+  def followee_images
+    @images = Image
+      .joins(:user)
+      .joins("LEFT OUTER JOIN follows ON users.id = follows.followee_id")
+      .where("follows.follower_id = ?", self.id)
+      .order(:created_at).reverse_order
+      .uniq
+
+    @images
+  end
 
   private
     def ensure_session_token
