@@ -1,0 +1,1 @@
+json.array! @in_follows, :id, :follower_id

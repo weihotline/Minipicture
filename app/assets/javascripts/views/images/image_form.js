@@ -25,7 +25,7 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
         caption: imageCaption
       }
 
-      InstagramClone.Collections.images.create(params);
+      InstagramClone.Collections.images.create(params, { wait: true });
       $('#image-form-modal').remove();
     }
 

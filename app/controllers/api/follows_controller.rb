@@ -1,7 +1,7 @@
 module Api
   class FollowsController < ApiController
     def create
-      @follow = current_user.out_follows.create!(followee_id: params[:user_id])
+      @follow = current_user.in_follows.create!(follower_id: params[:follower_id])
 
       respond_to do |format|
         format.json { render json: @follow }
@@ -9,12 +9,23 @@ module Api
     end
 
     def destroy
-      @follow = current_user.out_follows.find_by(followee_id: params[:user_id])
+      @follow = Follow.find(params[:id])
       @follow.destroy!
 
       respond_to do |format|
         format.json { render json: @follow }
       end
     end
+
+    def index
+      @in_follows = current_user.in_follows
+
+      render :index
+    end
+
+    private
+      def follow_params
+        params.require(:follow).permit(:follower_id)
+      end
   end
 end
