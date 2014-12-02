@@ -1,7 +1,7 @@
 module Api
   class FollowsController < ApiController
     def create
-      @follow = current_user.in_follows.create!(follower_id: params[:follower_id])
+      @follow = current_user.out_follows.create!(followee_id: params[:followee_id])
 
       respond_to do |format|
         format.json { render json: @follow }
@@ -18,14 +18,14 @@ module Api
     end
 
     def index
-      @in_follows = current_user.in_follows
+      @out_follows = current_user.out_follows
 
       render :index
     end
 
     private
       def follow_params
-        params.require(:follow).permit(:follower_id)
+        params.require(:follow).permit(:followee_id)
       end
   end
 end

@@ -6,7 +6,7 @@ InstagramClone.Views.FollowForm = Backbone.View.extend({
     this.image = options.image;
 
     this.imageOwnerId = parseInt(this.image.escape('user_id'));
-    this.follower = this.collection.findWhere({ follower_id: this.imageOwnerId });
+    this.followee = this.collection.findWhere({ followee_id: this.imageOwnerId });
   },
 
   className: "user-follow-detail",
@@ -20,7 +20,7 @@ InstagramClone.Views.FollowForm = Backbone.View.extend({
   render: function() {
     var content = this.template({
       image: this.image,
-      follower: this.follower
+      followee: this.followee
     });
 
     this.$el.html(content);
@@ -29,26 +29,27 @@ InstagramClone.Views.FollowForm = Backbone.View.extend({
   },
 
   handleAdd: function (model, collection) {
-    this.follower = model;
+    this.followee = model;
     this.render();
   },
 
   handleRemove: function (model, collection) {
-    this.follower = undefined;
+    this.followee = undefined;
     this.render();
   },
 
   submit: function (event) {
     event.preventDefault();
+    $(event.currentTarget).find('button').prop('disabled', true);
 
-    if (this.follower === undefined) {
+    if (this.followee === undefined) {
       var params = {
-        follower_id: this.imageOwnerId
+        followee_id: this.imageOwnerId
       }
 
       this.collection.create(params, { wait: true });
     } else {
-      this.follower.destroy();
+      this.followee.destroy();
     }
   }
 });

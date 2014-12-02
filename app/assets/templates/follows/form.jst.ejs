@@ -1,12 +1,12 @@
 <h5><a href="#"><%= image.escape('author') %></a></h5>
 <form class="pull-right">
   <button class="image-menus btn btn-default">
-    <% if (follower === undefined) { %>
+    <% if (followee === undefined) { %>
       <i class="glyphicon glyphicon-plus-sign"></i>
       Follow
     <% } else { %>
       <i class="glyphicon glyphicon-minus-sign"></i>
-      Following
+      Unfollow
     <% } %>
   </button>
 </form>

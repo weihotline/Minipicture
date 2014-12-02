@@ -36,7 +36,7 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
   _addFollowFormView: function () {
     var followFormView = new InstagramClone.Views.FollowForm({
       image: this.model,
-      collection: InstagramClone.Collections.followers
+      collection: InstagramClone.Collections.followees
     });
 
     this.addSubview(".modal-header", followFormView);

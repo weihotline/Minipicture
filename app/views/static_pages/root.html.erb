@@ -4,9 +4,9 @@
   $(InstagramClone.initialize);
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
   $(function () {
-    $("#sign-out").on("click", logout);
-    $("#refresh-feed").on("click", refresh);
-    $("#upload-image").on("click", upload);
+    $("#sign-out").on("click", JSUtil.logout);
+    $("#refresh-feed").on("click", JSUtil.refresh);
+    $("#upload-image").on("click", JSUtil.upload);
 
     $("a.fancybox-els").fancybox({
       type: 'image',
@@ -14,7 +14,15 @@
         title: { type : 'inside' }
       },
       beforeLoad: function() {
-        this.title = $(this.element).attr('caption');
+        this.title = JSUtil.fancyboxHTMLInjector($(this.element).attr('caption'));
+      },
+      afterShow: function() {
+        var id = $(this.element).data('id');
+
+        $('#fancybox-toggle-image-detail').on('click', function() {
+          var toggleImageDetail = '#toggle-image-detail-' + id;
+          $(toggleImageDetail).trigger('click');
+        });
       }
     });
   });

@@ -6,3 +6,11 @@ img#fancybox-item {
 a.fancybox-els {
   margin-bottom: 0px;
 }
+
+div.fancybox-title * {
+  display: inline-block;
+}
+
+div.fancybox-title h5 {
+  max-width: 50%;
+}
