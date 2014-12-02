@@ -3,7 +3,7 @@ InstagramClone.Views.CommentsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addCommentsIndexItem);
 
-    this.collection.each(this.addCommentsIndexItem.bind(this));
+    this.collection.sort().each(this.addCommentsIndexItem.bind(this));
   },
 
   template: JST['comments/index'],

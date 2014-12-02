@@ -3,11 +3,6 @@ InstagramClone.Collections.Images = Backbone.Collection.extend({
 
   model: InstagramClone.Models.Image,
 
-  comparator: function (image) {
-    var date = new Date(image.get('created_at'));
-    return -date.getTime();
-  },
-
   getOrFetch: function (id) {
     var image = this.get(id);
     var images = this;
@@ -24,6 +19,13 @@ InstagramClone.Collections.Images = Backbone.Collection.extend({
     }
 
     return image;
+  },
+
+  parse: function (response) {
+    this.page = response.page;
+    this.total_pages = response.total_pages;
+
+    return response.models;
   }
 });
 

@@ -5,7 +5,7 @@ InstagramClone.Collections.Comments = Backbone.Collection.extend({
 
   comparator: function(comment) {
     var date = new Date(comment.get('created_at'));
-    return -date.getTime();
+    return date.getTime();
   },
 
   getOrFetch: function(id) {

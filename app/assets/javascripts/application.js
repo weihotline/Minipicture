@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.serializejson
+//= require jquery.infinitescroll
 //= require fancybox
+//= require feather
 //= require underscore
 //= require backbone
 //= require instagram_clone

@@ -34,7 +34,10 @@ gem 'ejs'
 gem 'backbone-on-rails'
 gem 'fancybox2-rails'
 gem 'rails_12factor'
+# For keeping server awake
 gem 'newrelic_rpm'
+# For pagination
+gem 'kaminari'
 
 # Use figaro to access secret info in production
 gem 'figaro'

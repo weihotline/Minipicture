@@ -11,9 +11,9 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
   },
 
   _onRender: function () {
+    this._addFollowFormView();
     this._addCommentFormView();
     this._addCommentsIndexView();
-    this._addFollowFormView();
   },
 
   _addCommentFormView: function () {

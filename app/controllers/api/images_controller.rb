@@ -4,9 +4,14 @@ module Api
     def index
       # eventually this will render follower images
       # come back later
-      @images = Image.all
+      @images = Image.order(:created_at).reverse_order.page(params[:page])
 
-      render json: @images
+      params[:page] = 1 if params[:page].nil?
+      render :json => {
+        :models => @images,
+        :page => params[:page],
+        :total_pages => @images.total_pages
+      }
     end
 
     def create
@@ -14,8 +19,6 @@ module Api
 
       if @image.save
         respond_to do |format|
-          # this render to ajax request in utils/callbacks.js
-          # come back later
           format.json { render json: @image }
         end
       else
