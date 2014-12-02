@@ -3,7 +3,7 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
   template: JST['images/form'],
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
   },
 
   render: function() {
@@ -19,34 +19,40 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
 
     var imageCaption = $(event.currentTarget).serializeJSON()["image"].caption;
 
-    function success (blob) {
-      var params = {
-        image_url: blob.url,
-        caption: imageCaption
-      }
+    // set up aviary feather editor
+    var featherEditor = new Aviary.Feather({
+        apiKey: '<%= ENV["AVIARY_API_KEY" %>',
+        apiVersion: 3,
+        onSave: function(imageID, newURL) {
+          filepicker.export(newURL, { extension:'.jpg' });
 
-      InstagramClone.Collections.images.create(params, { wait: true });
-      $('#image-form-modal').remove();
-    }
+          // var params = {
+          //   image_url: newURL,
+          //   caption: imageCaption
+          // }
+
+          // InstagramClone.Collections.images.create(params, { wait: true });
+          // $('#image-form-modal').remove();
+        },
+        appendTo: 'aviary-pane'
+    });
+
+    var preview = document.getElementById('aviary-preview');
 
     function error (fperror) {
       console.log(fperror.toString());
     }
 
-    //Setup Aviary
-    // var featherEditor = new Aviary.Feather({
-    //     apiKey: '<%= ENV["AVIARY_API_KEY" %>',
-    //     apiVersion: 3,
-    //     onSave: function(imageID, newURL) {
-    //         //Export the photo to the cloud using the Filepicker!
-    //         filepicker.export(newURL, {extension:'.png'});
-    //     },
-    //     appendTo: 'web_demo_pane'
-    // });
-
     filepicker.pick({
       mimetypes: 'image/*',
       services: 'COMPUTER'
-    }, success, error);
+    }, function (blob) {
+      preview.src = blob.url;
+
+      featherEditor.launch({
+        image: preview,
+        url: blob.url
+      });
+    }, error);
   }
 });
