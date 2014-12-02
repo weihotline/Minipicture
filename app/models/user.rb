@@ -43,9 +43,11 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  def follows?(user)
-    out_follows.exists?(followee_id: user.id)
-  end
+  # def followee_images
+  #   @images = Image
+  #     .joins("LEFT OUTER JOIN follows ON user_id = follows.followee_id")
+  #     .joins("users ON follows.follower_id = :id", self.id)
+  # end
 
   private
     def ensure_session_token

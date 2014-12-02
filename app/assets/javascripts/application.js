@@ -19,6 +19,7 @@
 //= require feather
 //= require underscore
 //= require backbone
+//= require backbone.TriggerHappy
 //= require instagram_clone
 //= require_tree ../templates
 //= require_tree ./utils

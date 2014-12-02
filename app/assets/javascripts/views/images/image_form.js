@@ -33,6 +33,17 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
       console.log(fperror.toString());
     }
 
+    //Setup Aviary
+    // var featherEditor = new Aviary.Feather({
+    //     apiKey: '<%= ENV["AVIARY_API_KEY" %>',
+    //     apiVersion: 3,
+    //     onSave: function(imageID, newURL) {
+    //         //Export the photo to the cloud using the Filepicker!
+    //         filepicker.export(newURL, {extension:'.png'});
+    //     },
+    //     appendTo: 'web_demo_pane'
+    // });
+
     filepicker.pick({
       mimetypes: 'image/*',
       services: 'COMPUTER'
