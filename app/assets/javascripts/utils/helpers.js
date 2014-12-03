@@ -42,13 +42,13 @@
 
   JSUtil.fancyboxHTMLInjector = function (text) {
     var html = '<h5>' + text + '</h5>';
-    html += '<button class="image-menus btn btn-default pull-right">'
-    html += '<i class="glyphicon glyphicon-heart"></i>'
-    html += '</button>'
-    html += '<button class="image-menus btn btn-default pull-right"'
-    html += 'id="fancybox-toggle-image-detail">'
-    html += '<i class="glyphicon glyphicon-pencil"></i>'
-    html += '</button>'
+    html += '<button class="image-menus btn btn-default pull-right">';
+    html += '<i class="glyphicon glyphicon-heart"></i>';
+    html += '</button>';
+    html += '<button class="image-menus btn btn-default pull-right"';
+    html += 'id="fancybox-toggle-image-detail">';
+    html += '<i class="glyphicon glyphicon-pencil"></i>';
+    html += '</button>';
 
     return html;
   }

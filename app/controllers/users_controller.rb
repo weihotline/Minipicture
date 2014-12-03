@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
+      @user.self_follow
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -15,18 +16,18 @@ class UsersController < ApplicationController
     end
   end
 
-  def search
-    if params[:query].present?
-      @users = User.where("username ~ ?", params[:query])
-    else
-      @users = User.none
-    end
+  # def search
+  #   if params[:query].present?
+  #     @users = User.where("username ~ ?", params[:query])
+  #   else
+  #     @users = User.none
+  #   end
 
-    respond_to do |format|
-      format.html { render :search }
-      format.json { render :search }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { render :search }
+  #     format.json { render :search }
+  #   end
+  # end
 
   private
     def user_params

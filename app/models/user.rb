@@ -54,6 +54,11 @@ class User < ActiveRecord::Base
     @images
   end
 
+  def self_follow
+    follow = Follow.new(follower_id: self.id, followee_id: self.id)
+    follow.save!
+  end
+
   private
     def ensure_session_token
       self.session_token ||= self.class.generate_session_token
