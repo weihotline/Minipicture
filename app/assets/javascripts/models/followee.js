@@ -1,3 +1,3 @@
 InstagramClone.Models.Followee = Backbone.Model.extend({
-  urlRoot: '/api/follows'
+  urlRoot: 'api/follows'
 });

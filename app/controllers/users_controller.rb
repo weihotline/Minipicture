@@ -16,15 +16,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-
-    # if @user.update_attributes(user_params)
-    # else
-    #   render json: @user.errors.full_messages,
-    # end
-  end
-
   # def search
   #   if params[:query].present?
   #     @users = User.where("username ~ ?", params[:query])

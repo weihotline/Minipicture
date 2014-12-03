@@ -3,4 +3,5 @@ class Image < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :images
   has_many :comments, inverse_of: :image
+  has_many :likes, inverse_of: :image
 end

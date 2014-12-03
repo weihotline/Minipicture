@@ -1,5 +1,5 @@
 InstagramClone.Models.Image = Backbone.Model.extend({
-  urlRoot: "/api/images",
+  urlRoot: "api/images",
 
   comments: function () {
     if (!this._comments) {

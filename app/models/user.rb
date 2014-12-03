@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-
   has_many :in_follows, class_name: "Follow", foreign_key: :followee_id
   has_many :out_follows, class_name: "Follow", foreign_key: :follower_id
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
+  has_many :likes, inverse_of: :user
   has_many :images, inverse_of: :user
   has_many :comments, class_name: "Comment", foreign_key: :author_id
 
@@ -55,8 +55,7 @@ class User < ActiveRecord::Base
   end
 
   def self_follow
-    follow = Follow.new(follower_id: self.id, followee_id: self.id)
-    follow.save!
+    Follow.create!(:follower_id => self.id, :followee_id => self.id)
   end
 
   private

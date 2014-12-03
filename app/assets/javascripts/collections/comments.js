@@ -1,5 +1,5 @@
 InstagramClone.Collections.Comments = Backbone.Collection.extend({
-  url: '/api/comments',
+  url: 'api/comments',
 
   model: InstagramClone.Models.Comment,
 

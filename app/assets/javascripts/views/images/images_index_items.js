@@ -9,7 +9,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
   template: JST['images/index_items'],
 
   events: {
-    "click [id^=toggle-image-detail-]": "toggleModal"
+    "click [id^=toggle-image-detail-]": "toggleModal",
   },
 
   render: function () {
@@ -18,7 +18,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
     });
 
     this.$el.html(content);
-    this.attachSubviews();
+    this._onRender();
 
     return this;
   },
@@ -37,5 +37,28 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
       $(this).remove();
     });
     $('#image-detail-modal').modal('show');
+  },
+
+  _onRender: function () {
+    this._addLikeFormBtn();
+    this._addCommentShowBtn();
+  },
+
+  _addLikeFormBtn: function () {
+
+    var likeFormBottonView = new InstagramClone.Views.LikeFormView({
+      collection: InstagramClone.Collections.likes,
+      image: this.model
+    });
+
+    this.addSubview("#image-menus-btn", likeFormBottonView);
+  },
+
+  _addCommentShowBtn: function () {
+    var commentShowBottonView = new InstagramClone.Views.CommentShowView({
+      image: this.model
+    });
+
+    this.addSubview("#image-menus-btn", commentShowBottonView);
   }
 })

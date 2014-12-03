@@ -1,5 +1,5 @@
 InstagramClone.Collections.Images = Backbone.Collection.extend({
-  url: "/api/images",
+  url: "api/images",
 
   model: InstagramClone.Models.Image,
 

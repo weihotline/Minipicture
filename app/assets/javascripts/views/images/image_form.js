@@ -21,7 +21,7 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
 
     // set up aviary feather editor
     var featherEditor = new Aviary.Feather({
-        apiKey: InstagramClone.aviary_key,
+        apiKey: InstagramClone.aviaryKey,
         apiVersion: 3,
         theme: 'light',
         onSave: function(imageID, newURL) {
