@@ -23,16 +23,20 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
     var featherEditor = new Aviary.Feather({
         apiKey: '<%= ENV["AVIARY_API_KEY" %>',
         apiVersion: 3,
-        onSave: function(imageID, newURL) {
-          filepicker.export(newURL, { extension:'.jpg' });
+        theme: 'light',
+        // onSave: function(imageID, newURL) {
+        //   // filepicker.export(newURL, { extension:'.png' });
 
-          // var params = {
-          //   image_url: newURL,
-          //   caption: imageCaption
-          // }
+        //   // var params = {
+        //   //   image_url: newURL,
+        //   //   caption: imageCaption
+        //   // }
 
-          // InstagramClone.Collections.images.create(params, { wait: true });
-          // $('#image-form-modal').remove();
+        //   // InstagramClone.Collections.images.create(params, { wait: true });
+        //   // $('#image-form-modal').remove();
+        // },
+        onError: function(errorObj) {
+          alert(errorObj.message);
         },
         appendTo: 'aviary-pane'
     });
