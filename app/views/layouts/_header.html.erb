@@ -7,21 +7,17 @@
       <% if signed_in? %>
         <ul class="nav navbar-nav">
           <li id="header-dropdown" class="dropdown">
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <button class="btn btn-default" type="button">
-                  <span class="glyphicon glyphicon-search">
-                  </span>
-                </button>
-              </div>
-            </form>
+            <button type="button" id="search-user"
+                    class="user-menus btn btn-default">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
             <button type="button" id="upload-image"
                     class="user-menus btn btn-default"
                     >upload</button>
             <button id="refresh-feed"
                     class="user-menus btn btn-default">
-                <i class="glyphicon glyphicon-refresh"></i></button>
+                <i class="glyphicon glyphicon-refresh"></i>
+            </button>
             <button class="user-menus btn btn-default"
                     data-toggle="dropdown">
               <i class="glyphicon glyphicon-th-large"></i>

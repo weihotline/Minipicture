@@ -2,8 +2,7 @@ module Api
   class ImagesController < ApiController
 
     def index
-      @images = Image.order(:created_at).reverse_order.page(params[:page])
-      # @images = current_user.followee_images.page(params[:page])
+      @images = current_user.followee_images.page(params[:page])
 
       params[:page] = 1 if params[:page].nil?
       render :json => {

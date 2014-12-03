@@ -1,5 +1,6 @@
 <div id="content"></div>
 <div id="image-form"></div>
+<div id="search-form"></div>
 <script>
   $(function() {
     InstagramClone.aviaryKey = "<%= ENV['AVIARY_API_KEY'] %>";
@@ -11,6 +12,7 @@
     $("#sign-out").on("click", JSUtil.logout);
     $("#refresh-feed").on("click", JSUtil.refresh);
     $("#upload-image").on("click", JSUtil.upload);
+    $("#search-user").on("click", JSUtil.search);
 
     $("a.fancybox-els").fancybox({
       type: 'image',

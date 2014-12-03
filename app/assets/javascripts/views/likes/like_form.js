@@ -1,7 +1,7 @@
 InstagramClone.Views.LikeFormView = Backbone.View.extend({
 
   initialize: function (options) {
-    this.listenTo(this.collection, "add remove", this.render);
+    this.listenTo(this.collection, "sync remove", this.render);
     this.image = options.image
   },
 
@@ -14,6 +14,7 @@ InstagramClone.Views.LikeFormView = Backbone.View.extend({
   },
 
   render: function () {
+    debugger
     var like = this.collection.findWhere({ image_id: this.image.id });
 
     var content = this.template({

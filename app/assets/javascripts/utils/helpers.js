@@ -40,6 +40,15 @@
     $('#image-form-modal').modal('show');
   }
 
+  JSUtil.search = function (event) {
+    event.preventDefault();
+
+    var searchFormView = new InstagramClone.Views.SearchForm;
+
+    $('#search-form').html(searchFormView.render().$el);
+    $('#search-form-modal').modal('show');
+  }
+
   JSUtil.fancyboxHTMLInjector = function (text) {
     var html = '<h5>' + text + '</h5>';
     html += '<button class="image-menus btn btn-default pull-right"';
