@@ -18,8 +18,8 @@ class UsersController < ApplicationController
 
   def search
     if params[:query].present?
-      @users = User.where("username ~ ?", params[:query])
-      @images = Image.where("caption ~ ?", params[:query])
+      @users = User.where("UPPER(username) ~ ?", params[:query].upcase)
+      @images = Image.where("UPPER(caption) ~ ?", params[:query].upcase)
     else
       @users = User.none
       @images = Image.none

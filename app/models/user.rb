@@ -58,6 +58,10 @@ class User < ActiveRecord::Base
     Follow.create!(:follower_id => self.id, :followee_id => self.id)
   end
 
+  def follows?(user)
+    out_follows.exists?(followee_id: user.id)
+  end
+
   private
     def ensure_session_token
       self.session_token ||= self.class.generate_session_token

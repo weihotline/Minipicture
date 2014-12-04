@@ -12,14 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require jquery.serializejson
 //= require jquery.infinitescroll
-//= require typeahead
 //= require fancybox
 //= require feather
 //= require underscore
 //= require backbone
+//= require bootstrap
 //= require instagram_clone
 //= require_tree ../templates
 //= require_tree ./utils

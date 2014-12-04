@@ -14,6 +14,8 @@
         setTimeout(function() {
           $refresh.removeClass("gly-spin");
         }, 1000);
+
+        window.location.reload();
       }
     });
   }

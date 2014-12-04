@@ -3,10 +3,10 @@ InstagramClone.Views.FollowForm = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.collection, "add", this.handleAdd);
     this.listenTo(this.collection, "remove", this.handleRemove);
-    this.image = options.image;
 
-    this.imageOwnerId = parseInt(this.image.escape('user_id'));
-    this.followee = this.collection.findWhere({ followee_id: this.imageOwnerId });
+    this.image = options.image;
+    this.userId = (options.userId || parseInt(this.image.escape('user_id')));
+    this.followee = this.collection.findWhere({ followee_id: this.userId });
   },
 
   className: "user-follow-detail",
@@ -44,7 +44,7 @@ InstagramClone.Views.FollowForm = Backbone.View.extend({
 
     if (this.followee === undefined) {
       var params = {
-        followee_id: this.imageOwnerId
+        followee_id: this.userId
       }
 
       this.collection.create(params, { wait: true });

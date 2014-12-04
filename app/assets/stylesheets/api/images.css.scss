@@ -11,15 +11,16 @@ div.images-index-items > li {
   display: inline-block;
 }
 
-ul.comments-index-items {
+ul.comments-index-items, ul#search-results {
   padding: 0px;
 }
 
-ul.comments-index-items > li {
+ul.comments-index-items, ul#search-results > li {
   list-style-type: none;
   margin-bottom: 10px;
 
   h5 {
     margin: 0px;
+    margin-bottom: 5px;
   }
 }

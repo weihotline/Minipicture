@@ -1,0 +1,9 @@
+<% if (result === 'No Match Found') { %>
+  <h5>No Match Found</h5>
+<% } else { %>
+  <% if (result.image_url) { %>
+    <img src="<%= result.image_url %>" alt="">
+  <% } else { %>
+    <h5><a href="#"><%= result.username %></a></h5>
+  <% } %>
+<% } %>
