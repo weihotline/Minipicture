@@ -2,11 +2,10 @@ InstagramClone.Views.ImagesIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addImagesIndexItem);
+    this.listenTo(this.collection, "remove", this.removeImagesIndexItem);
 
     this.collection.each(this.addImagesIndexItem.bind(this));
   },
-
-  template: JST['images/index'],
 
   addImagesIndexItem: function (imagesIndexItem) {
     var imagesIndexItemView =
@@ -16,8 +15,19 @@ InstagramClone.Views.ImagesIndex = Backbone.CompositeView.extend({
 
     this.addSubview(".images-index-items", imagesIndexItemView);
   },
+  removeImagesIndexItem: function(imagesIndexItem) {
+    var imagesIndexItemView =
+      _(this.subviews()[".images-index-items"]).find(function (subview) {
+        return subview.model == imagesIndexItem;
+      });
+
+    this.removeSubview('.images-index-items', imagesIndexItemView);
+  },
+
+  template: JST['images/index'],
 
   render: function () {
+
     var content = this.template();
 
     this.$el.html(content);

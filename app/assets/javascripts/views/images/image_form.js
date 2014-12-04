@@ -1,7 +1,7 @@
 InstagramClone.Views.ImageForm = Backbone.View.extend({
 
   template: JST['images/form'],
-
+  className: 'image-jeff',
   events: {
     "submit form": "submit",
   },

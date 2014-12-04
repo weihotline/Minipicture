@@ -18,7 +18,7 @@ module Api
     def index
       @likes = current_user.likes
 
-      render :index
+      render @likes
     end
   end
 end
