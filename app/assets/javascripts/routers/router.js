@@ -10,7 +10,6 @@ InstagramClone.Routers.Router = Backbone.Router.extend({
   imagesIndex: function () {
     InstagramClone.Collections.images.fetch();
     InstagramClone.Collections.followees.fetch();
-    InstagramClone.Collections.likes.fetch();
 
     var imagesIndexView = new InstagramClone.Views.ImagesIndex({
       collection: InstagramClone.Collections.images

@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require jquery.serializejson
 //= require jquery.infinitescroll
+//= require typeahead
 //= require fancybox
 //= require feather
 //= require underscore

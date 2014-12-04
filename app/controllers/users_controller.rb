@@ -16,18 +16,17 @@ class UsersController < ApplicationController
     end
   end
 
-  # def search
-  #   if params[:query].present?
-  #     @users = User.where("username ~ ?", params[:query])
-  #   else
-  #     @users = User.none
-  #   end
+  def search
+    if params[:query].present?
+      @users = User.where("username ~ ?", params[:query])
+      @images = Image.where("caption ~ ?", params[:query])
+    else
+      @users = User.none
+      @images = Image.none
+    end
 
-  #   respond_to do |format|
-  #     format.html { render :search }
-  #     format.json { render :search }
-  #   end
-  # end
+    render :search
+  end
 
   private
     def user_params

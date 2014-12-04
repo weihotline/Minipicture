@@ -47,7 +47,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
   _addLikeFormBtn: function () {
 
     var likeFormBottonView = new InstagramClone.Views.LikeFormView({
-      collection: InstagramClone.Collections.likes,
+      collection: this.model.likes(),
       image: this.model
     });
 
