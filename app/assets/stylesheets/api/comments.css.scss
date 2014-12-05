@@ -9,7 +9,6 @@ ul.comments-index-items, ul#search-results > li {
   h5 {
     margin: 0px;
     margin-bottom: 5px;
-    display: inline-block;
   }
 }
 
@@ -20,7 +19,8 @@ ul.comments-index-items {
     display: inline-block;
   }
 
-  h5 {
-    margin-top: 10px;
+  div.comment {
+    width: 90%;
+    display: inline-block;
   }
 }
