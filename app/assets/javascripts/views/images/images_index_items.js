@@ -31,7 +31,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
       model: this.model
     });
 
-    $('body').append(imageDetailView.render().$el);
+    this.$el.append(imageDetailView.render().$el);
 
     // listen on closing modal
     $("#image-detail-modal").on('hidden.bs.modal', function () {
