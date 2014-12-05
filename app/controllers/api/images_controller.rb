@@ -14,6 +14,7 @@ module Api
 
     def create
       @image = current_user.images.new(image_params)
+      @image.caption = current_user.username.concat('\'s image') if @image.caption == ""
 
       if @image.save
         respond_to do |format|
