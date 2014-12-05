@@ -1,0 +1,1 @@
+json.array! @image_collection, :id, :image_url, :caption, :created_at, :updated_at

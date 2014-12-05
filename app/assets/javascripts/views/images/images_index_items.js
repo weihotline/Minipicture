@@ -1,7 +1,8 @@
 InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
-  initialize: function () {
-    this.model.fetch();
+  initialize: function (options) {
+    this.isImageCollection = options.isImageCollection;
+    if (!this.isImageCollection) { this.model.fetch() };
   },
 
   tagName: "li",
@@ -40,8 +41,10 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
   },
 
   _onRender: function () {
-    this._addLikeFormBtn();
-    this._addCommentShowBtn();
+    if (!this.isImageCollection) {
+      this._addLikeFormBtn();
+      this._addCommentShowBtn();
+    }
   },
 
   _addLikeFormBtn: function () {

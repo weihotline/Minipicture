@@ -8,7 +8,7 @@ json.comments @image.comments do |comment|
 end
 
 json.likes @image.likes do |like|
-  if (like.user_id = current_user.id)
+  if (like.user_id == current_user.id)
     json.extract! like, :id, :user_id, :image_id, :created_at, :updated_at
   end
 end

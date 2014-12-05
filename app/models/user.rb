@@ -62,6 +62,18 @@ class User < ActiveRecord::Base
     out_follows.exists?(followee_id: user.id)
   end
 
+  def image_collection
+    @images = Image
+      .joins(:user)
+      .where('users.id = ?', self.id)
+
+    @liked_images = Image
+      .joins(:likes)
+      .where('likes.user_id = ?', self.id)
+
+    (@images + @liked_images).uniq
+  end
+
   private
     def ensure_session_token
       self.session_token ||= self.class.generate_session_token
