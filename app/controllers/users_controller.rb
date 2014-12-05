@@ -16,6 +16,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    render :edit
+  end
+
+  def update
+    if current_user.update_attributes(user_params)
+
+    else
+
+    end
+  end
+
   def search
     if params[:query].present?
       @users = User.where("UPPER(username) ~ ?", params[:query].upcase)

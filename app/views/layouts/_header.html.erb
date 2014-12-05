@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/"><i class="glyphicon glyphicon-home"></i></a>
+      <a class="navbar-brand" href="<%= root_url %>"><i class="glyphicon glyphicon-home"></i></a>
     </div>
     <div class="nav navbar-nav navbar-right">
       <% if signed_in? %>
@@ -23,9 +23,9 @@
               <i class="glyphicon glyphicon-th-large"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">Edit <span class="glyphicon glyphicon-user pull-right"></span></a></li>
+              <li><a href="<%= edit_user_url(User.generate_session_token) %>">Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
               <li class="divider"></li>
-              <li><a href="#collections">Collection<span class="glyphicon glyphicon-picture pull-right"></span></a></li>
+              <li><a href="/#collections">Collection<span class="glyphicon glyphicon-picture pull-right"></span></a></li>
               <li class="divider"></li>
               <li><a id="sign-out" href="#">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
             </ul>
