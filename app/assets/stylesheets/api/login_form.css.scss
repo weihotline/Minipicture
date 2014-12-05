@@ -55,22 +55,12 @@ html, body{
 	height:40px;
 	border: 1px solid #ccc;;
 	background: #fafafa;
-	transition:0.2s ease-in-out;
+	transition:0.5s ease-in-out;
 }
 
 .form-box input:focus{
     outline: 0;
     background: #eee;
-}
-
-.form-box input[type="text"]{
-    border-radius: 5px 5px 0 0;
-    text-transform: lowercase;
-}
-
-.form-box input[type="password"]{
-    border-radius: 0 0 5px 5px;
-    border-top: 0;
 }
 
 .form-box button.login{
