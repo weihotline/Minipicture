@@ -8,12 +8,14 @@
   });
   filepicker.setKey("<%= ENV['FILEPICKER_API_KEY'] %>");
 
-  $(function () {
+  $(function() {
     $("#sign-out").on("click", JSUtil.logout);
     $("#refresh-feed").on("click", JSUtil.refresh);
     $("#upload-image").on("click", JSUtil.upload);
     $("#search-user").on("click", JSUtil.search);
+  });
 
+  $(function () {
     $("a.fancybox-els").fancybox({
       type: 'image',
       helpers: {

@@ -28,7 +28,7 @@
       type: 'DELETE',
       dataType: 'json',
       success: function(response) {
-        window.location.reload();
+        document.location.href="/";
       }
     });
   }

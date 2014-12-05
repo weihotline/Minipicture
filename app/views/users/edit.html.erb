@@ -1,14 +1,42 @@
-<div class="container-fluid well span6">
-  <div class="row-fluid">
-    <div class="span2" >
-    <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
-    </div>
+<div class="container">
+  <div class="row vertical-offset-100">
+    <div class="col-md-4 col-md-offset-4">
+      <%= render 'shared/error' %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row-fluid user-row">
+            <%= image_tag("gravatar.png",
+                :alt => "gravatar",
+                :class => "img-responsive") %>
+          </div>
+        </div>
+        <div class="panel-body">
+          <form accept-charset="UTF-8" role="form"
+                class="form-edit"
+                action="<%= user_url(User.generate_session_token)
+                %>"
+                method="POST">
+            <fieldset>
+              <input type="hidden" name="_method"
+                     value="PATCH">
 
-    <div class="span8">
-        <h3>User Name</h3>
-        <h6>Email: MyEmail@servidor.com</h6>
-        <h6>Ubication: Colombia</h6>
-        <h6>Old: 1 Year</h6>
+              <input type="hidden"
+                     name="authenticity_token"
+                     value="<%= form_authenticity_token%>">
+
+              <input type="text"
+                     class="form-control"
+                     placeholder="Username"
+                     name="user[username]"
+                     value="<%= current_user.username %>">
+              <br />
+              <input class="btn btn-lg btn-primary btn-block"
+                     type="submit"
+                     value="Save »">
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

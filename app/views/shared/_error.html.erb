@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+  <div class="alert alert-warning alert-dismissible animated fadeInUp" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <%= flash[:errors].join(".<br>").html_safe %>
+  </div>
+<% elsif flash[:notice] %>
+  <div class="alert alert-success alert-dismissible animated fadeInUp" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
+    <%= flash[:notice].join(".<br>").html_safe %>
+  </div>
+<% end %>

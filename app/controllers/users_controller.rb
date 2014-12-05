@@ -22,10 +22,12 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update_attributes(user_params)
-
+      flash.now[:notice] = ["Successfully Saved!"]
     else
-
+      flash.now[:errors] = current_user.errors.full_messages
     end
+
+    render :edit
   end
 
   def search
