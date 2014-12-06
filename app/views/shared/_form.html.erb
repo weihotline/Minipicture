@@ -26,8 +26,20 @@
           <button class="btn btn-info btn-block login"
                   type="submit"><%= button_label %>
           </button>
+          <% unless is_sign_up %>
+            <button id="guest-log-in"
+                    class="btn btn-info btn-block login"
+                    type="submit">Guest Log in »
+            </button>
+          <% end %>
         </fieldset>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+  $(function() {
+    $('#guest-log-in').on('click', JSUtil.guestLoginFiller);
+  });
+</script>

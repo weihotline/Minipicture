@@ -60,4 +60,9 @@
 
     return html;
   }
+
+  JSUtil.guestLoginFiller = function (event) {
+    $('input:text').val('Minigram@gmail.com');
+    $('input:password').val('password');
+  }
 })();
