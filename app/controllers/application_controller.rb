@@ -46,10 +46,13 @@ class ApplicationController < ActionController::Base
         email: "guest_#{Time.now.to_i}#{rand(100)}@example.com",
         password: 'password'
       )
-      user.out_follows.create!(
-        followee_id: User.find_by_username('cherrie'),
+
+      user.self_follow
+      user.out_follows.new(
+        followee_id: User.find_by_username('cherrie').id,
         follower_id: user.id
       )
+
       user.save!(validate: false)
       session[:guest_user_id] = user.id
 
