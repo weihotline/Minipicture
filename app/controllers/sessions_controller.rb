@@ -7,14 +7,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(
-      params[:user][:email],
-      params[:user][:password]
-    )
+    if params[:user]
+      @user = User.find_by_credentials(
+        params[:user][:email],
+        params[:user][:password]
+      )
+    else
+      @user = guest_user
+    end
 
     if @user
       sign_in(@user)
-      redirect_to root_url
+      respond_to do |format|
+        format.html { redirect_to root_url }
+        format.json { render json: { message: 'guest logged in' } }
+      end
     else
       @user = User.new(email: params[:user][:email])
       flash.now[:errors] ||= []

@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :guest_user, :signed_in?
 
   def current_user
     return nil unless session[:token]
     @current_user ||= User.find_by_session_token(session[:token])
+  end
+
+  def guest_user(with_try = true)
+    @cached_guest_user ||= User.find(
+      session[:guest_user_id] ||= create_guest_user.id
+    )
+  rescue ActiveRecord::RecordNotFound
+    session[:guest_user_id] = nil
+    guest_user if with_try
   end
 
   def signed_in?
@@ -29,4 +38,21 @@ class ApplicationController < ActionController::Base
   def require_signed_out!
     redirect_to root_url if signed_in?
   end
+
+  private
+    def create_guest_user
+      user = User.create(
+        username: "Guest_#{Time.now.to_i}#{rand(100)}",
+        email: "guest_#{Time.now.to_i}#{rand(100)}@example.com",
+        password: 'password'
+      )
+      user.out_follows.create!(
+        followee_id: User.find_by_username('cherrie'),
+        follower_id: user.id
+      )
+      user.save!(validate: false)
+      session[:guest_user_id] = user.id
+
+      user
+    end
 end

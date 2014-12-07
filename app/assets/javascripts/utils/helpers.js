@@ -61,8 +61,16 @@
     return html;
   }
 
-  JSUtil.guestLoginFiller = function (event) {
-    $('input:text').val('Minigram@gmail.com');
-    $('input:password').val('password');
+  JSUtil.guestLogin = function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: '/session',
+      type: 'POST',
+      dataType: 'json',
+      success: function(response) {
+        document.location.href="/";
+      }
+    })
   }
 })();
