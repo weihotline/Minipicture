@@ -32,6 +32,7 @@ This is a Rails application that is inspired by the famous existing image sharin
 <pre> <code>rails s
 </code></pre>
 </p>
+Open the browser and navigate to **localhost:3000**.
 
 ## Features
 * Users can upload their images by clicking the upload button. The image editing feature will automatically launch if the image is uploaded successfully.
