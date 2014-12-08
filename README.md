@@ -38,7 +38,7 @@ This is a Rails application that is inspired by the famous existing image sharin
 * Users can search other users or image tags through the search box.
 * Users can follow other users through the search box.
 * When the user likes an image, it will automatically add to his/her collection.
-* Clicking on the image will trigger slideshow browsing mode.
+* Clicking on an image will trigger slideshow browsing mode.
 * Users can comment on an image.
 
 ## Disclaimer
