@@ -12,7 +12,7 @@ This is a Rails application that is inspired by the famous existing image sharin
 * [Underscore](http://underscorejs.org/)
 
 ## Other Implementations
-* [Bootstrap](http://getbootstrap.com/)
+* [Twitter Bootstrap](http://getbootstrap.com/)
 * [Fancybox](http://fancybox.net/)
 * [Filepicker + Aviary](https://www.filepicker.io/products/aviary/)
 * [Kaminari](https://github.com/amatsuda/kaminari)
