@@ -1,4 +1,4 @@
-InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
+Minipicture.Views.ImageDetail = Backbone.CompositeView.extend({
 
   template: JST['images/detail'],
 
@@ -17,16 +17,16 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
   },
 
   _addFollowFormView: function () {
-    var followFormView = new InstagramClone.Views.FollowForm({
+    var followFormView = new Minipicture.Views.FollowForm({
       image: this.model,
-      collection: InstagramClone.Collections.followees
+      collection: Minipicture.Collections.followees
     });
 
     this.addSubview(".modal-header", followFormView);
   },
 
   _addCommentsIndexView: function () {
-    var commentsIndexView = new InstagramClone.Views.CommentsIndex({
+    var commentsIndexView = new Minipicture.Views.CommentsIndex({
       collection: this.model.comments()
     });
 
@@ -34,7 +34,7 @@ InstagramClone.Views.ImageDetail = Backbone.CompositeView.extend({
   },
 
   _addCommentFormView: function () {
-    var commentFormView = new InstagramClone.Views.CommentForm({
+    var commentFormView = new Minipicture.Views.CommentForm({
       collection: this.model.comments(),
       image: this.model
     })

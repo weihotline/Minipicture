@@ -1,4 +1,4 @@
-InstagramClone.Views.CommentShowView = Backbone.View.extend({
+Minipicture.Views.CommentShowView = Backbone.View.extend({
 
   initialize: function (options) {
     this.image = options.image

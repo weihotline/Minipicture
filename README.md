@@ -20,10 +20,10 @@ This is a Rails application that is inspired by the famous existing image sharin
 ## Getting Started
 <p>
 1. Clone the repo
-<pre> <code>git clone https://github.com/weihotline/InstagramClone.git
+<pre> <code>git clone https://github.com/weihotline/Minipicture.git
 </code></pre>
-2. Change to InstagramClone directory
-<pre> <code>cd InstagramClone
+2. Change to Minipicture directory
+<pre> <code>cd Minipicture
 </code></pre>
 3. Install Dependencies
 <pre> <code>bundle install

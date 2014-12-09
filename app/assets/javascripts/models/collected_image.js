@@ -1,9 +1,9 @@
-InstagramClone.Models.CollectedImage = Backbone.Model.extend({
+Minipicture.Models.CollectedImage = Backbone.Model.extend({
   urlRoot: 'api/image_collections',
 
   likes: function () {
     if (!this._likes) {
-      this._likes = new InstagramClone.Collections.Likes([], {
+      this._likes = new Minipicture.Collections.Likes([], {
         image: this
       });
     }

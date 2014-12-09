@@ -1,4 +1,4 @@
-InstagramClone.Views.ImageForm = Backbone.View.extend({
+Minipicture.Views.ImageForm = Backbone.View.extend({
 
   template: JST['images/form'],
   className: 'image-jeff',
@@ -21,7 +21,7 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
 
     // set up aviary feather editor
     var featherEditor = new Aviary.Feather({
-        apiKey: InstagramClone.aviaryKey,
+        apiKey: Minipicture.aviaryKey,
         apiVersion: 3,
         theme: 'light',
         onSave: function(imageID, newURL) {
@@ -31,7 +31,7 @@ InstagramClone.Views.ImageForm = Backbone.View.extend({
             caption: imageCaption
           }
 
-          InstagramClone.Collections.images.create(params, { wait: true });
+          Minipicture.Collections.images.create(params, { wait: true });
           $('#image-form-modal').remove();
           $('body').removeClass('modal-open');
         },

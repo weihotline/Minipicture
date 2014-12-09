@@ -1,10 +1,10 @@
-window.InstagramClone = {
+window.Minipicture = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    new InstagramClone.Routers.Router;
+    new Minipicture.Routers.Router;
 
     Backbone.history.start();
   }

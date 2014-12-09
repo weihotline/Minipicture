@@ -1,14 +1,14 @@
-InstagramClone.Collections.Images = Backbone.Collection.extend({
+Minipicture.Collections.Images = Backbone.Collection.extend({
   url: "api/images",
 
-  model: InstagramClone.Models.Image,
+  model: Minipicture.Models.Image,
 
   getOrFetch: function (id) {
     var image = this.get(id);
     var images = this;
 
     if (!image) {
-      image = new InstagramClone.Models.Image({ id: id });
+      image = new Minipicture.Models.Image({ id: id });
       image.fetch({
         success: function () {
           images.add(image);
@@ -29,4 +29,4 @@ InstagramClone.Collections.Images = Backbone.Collection.extend({
   }
 });
 
-InstagramClone.Collections.images = new InstagramClone.Collections.Images;
+Minipicture.Collections.images = new Minipicture.Collections.Images;

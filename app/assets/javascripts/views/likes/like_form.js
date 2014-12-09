@@ -1,4 +1,4 @@
-InstagramClone.Views.LikeFormView = Backbone.View.extend({
+Minipicture.Views.LikeFormView = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.collection, "add remove", this.render);

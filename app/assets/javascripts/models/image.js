@@ -1,9 +1,9 @@
-InstagramClone.Models.Image = Backbone.Model.extend({
+Minipicture.Models.Image = Backbone.Model.extend({
   urlRoot: "api/images",
 
   likes: function () {
     if (!this._likes) {
-      this._likes = new InstagramClone.Collections.Likes([], {
+      this._likes = new Minipicture.Collections.Likes([], {
         image: this
       });
     }
@@ -13,7 +13,7 @@ InstagramClone.Models.Image = Backbone.Model.extend({
 
   comments: function () {
     if (!this._comments) {
-      this._comments = new InstagramClone.Collections.Comments([], {
+      this._comments = new Minipicture.Collections.Comments([], {
         image: this
       });
     }

@@ -1,7 +1,7 @@
-InstagramClone.Collections.Comments = Backbone.Collection.extend({
+Minipicture.Collections.Comments = Backbone.Collection.extend({
   url: 'api/comments',
 
-  model: InstagramClone.Models.Comment,
+  model: Minipicture.Models.Comment,
 
   comparator: function(comment) {
     var date = new Date(comment.get('created_at'));
@@ -13,7 +13,7 @@ InstagramClone.Collections.Comments = Backbone.Collection.extend({
     var comments = this;
 
     if (!comment) {
-      comment = new InstagramClone.Models.Comment({ id: id });
+      comment = new Minipicture.Models.Comment({ id: id });
       comment.fetch({
         success: function () {
           comments.add(comment);

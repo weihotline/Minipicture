@@ -1,4 +1,4 @@
-InstagramClone.Views.SearchForm = Backbone.CompositeView.extend({
+Minipicture.Views.SearchForm = Backbone.CompositeView.extend({
 
   template: JST['searches/form'],
 
@@ -38,7 +38,7 @@ InstagramClone.Views.SearchForm = Backbone.CompositeView.extend({
   },
 
   _showSearchResult: function (result) {
-    var searchShowView = new InstagramClone.Views.SearchShow({
+    var searchShowView = new Minipicture.Views.SearchShow({
       result: result
     });
 

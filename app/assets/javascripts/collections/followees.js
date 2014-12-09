@@ -1,5 +1,5 @@
-InstagramClone.Collections.Followees = Backbone.Collection.extend({
+Minipicture.Collections.Followees = Backbone.Collection.extend({
   url: 'api/follows'
 });
 
-InstagramClone.Collections.followees = new InstagramClone.Collections.Followees;
+Minipicture.Collections.followees = new Minipicture.Collections.Followees;

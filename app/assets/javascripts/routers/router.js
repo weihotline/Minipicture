@@ -1,4 +1,4 @@
-InstagramClone.Routers.Router = Backbone.Router.extend({
+Minipicture.Routers.Router = Backbone.Router.extend({
   initialize: function () {
     this.$rootEl = $('#content');
   },
@@ -9,11 +9,11 @@ InstagramClone.Routers.Router = Backbone.Router.extend({
   },
 
   imagesIndex: function () {
-    InstagramClone.Collections.images.fetch();
-    InstagramClone.Collections.followees.fetch();
+    Minipicture.Collections.images.fetch();
+    Minipicture.Collections.followees.fetch();
 
-    var imagesIndexView = new InstagramClone.Views.ImagesIndex({
-      collection: InstagramClone.Collections.images,
+    var imagesIndexView = new Minipicture.Views.ImagesIndex({
+      collection: Minipicture.Collections.images,
       isImageCollection: false
     });
 
@@ -21,10 +21,10 @@ InstagramClone.Routers.Router = Backbone.Router.extend({
   },
 
   collectedImagesIndex: function () {
-    InstagramClone.Collections.collectedImages.fetch();
+    Minipicture.Collections.collectedImages.fetch();
 
-    var collectedImagesIndexView = new InstagramClone.Views.ImagesIndex({
-      collection: InstagramClone.Collections.collectedImages,
+    var collectedImagesIndexView = new Minipicture.Views.ImagesIndex({
+      collection: Minipicture.Collections.collectedImages,
       isImageCollection: true
     });
 

@@ -1,4 +1,4 @@
-InstagramClone.Views.FollowForm = Backbone.View.extend({
+Minipicture.Views.FollowForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.collection, "add remove", this.render);
@@ -35,7 +35,7 @@ InstagramClone.Views.FollowForm = Backbone.View.extend({
     var followee = this._findFollowee();
 
     function success () {
-      InstagramClone.Collections.images.fetch();
+      Minipicture.Collections.images.fetch();
     }
 
     if (followee === undefined) {

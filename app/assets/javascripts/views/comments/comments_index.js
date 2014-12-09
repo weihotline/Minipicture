@@ -1,4 +1,4 @@
-InstagramClone.Views.CommentsIndex = Backbone.CompositeView.extend({
+Minipicture.Views.CommentsIndex = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addCommentsIndexItem);
@@ -10,7 +10,7 @@ InstagramClone.Views.CommentsIndex = Backbone.CompositeView.extend({
 
   addCommentsIndexItem: function (commentsIndexItem) {
     var commentsIndexItemView =
-      new InstagramClone.Views.CommentsIndexItem({
+      new Minipicture.Views.CommentsIndexItem({
         model: commentsIndexItem
       });
 

@@ -10,7 +10,7 @@
 //= require underscore
 //= require backbone
 //= require bootstrap
-//= require instagram_clone
+//= require minipicture
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models

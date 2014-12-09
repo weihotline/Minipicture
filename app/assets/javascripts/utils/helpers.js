@@ -8,7 +8,7 @@
     var $refresh = $('button#refresh-feed > i');
     $refresh.addClass("gly-spin");
 
-    InstagramClone.Collections.images.fetch({
+    Minipicture.Collections.images.fetch({
       success: function () {
         // setTimeout allows user to see the fetch effect
         setTimeout(function() {
@@ -36,7 +36,7 @@
   JSUtil.upload = function (event) {
     event.preventDefault();
 
-    var imageFormView = new InstagramClone.Views.ImageForm;
+    var imageFormView = new Minipicture.Views.ImageForm;
 
     $('#image-form').html(imageFormView.render().$el);
     $('#image-form-modal').modal('show');
@@ -45,7 +45,7 @@
   JSUtil.search = function (event) {
     event.preventDefault();
 
-    var searchFormView = new InstagramClone.Views.SearchForm;
+    var searchFormView = new Minipicture.Views.SearchForm;
 
     $('#search-form').html(searchFormView.render().$el);
     $('#search-form-modal').modal('show');

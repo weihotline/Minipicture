@@ -1,4 +1,4 @@
-InstagramClone.Views.SearchShow = Backbone.View.extend({
+Minipicture.Views.SearchShow = Backbone.View.extend({
 
   initialize: function (options) {
     this.result = options.result;
@@ -28,9 +28,9 @@ InstagramClone.Views.SearchShow = Backbone.View.extend({
       this.$el.append('<div>');
     } else {
       var userId = (this.result.id || this.result.user_id);
-      var followFormView = new InstagramClone.Views.FollowForm({
+      var followFormView = new Minipicture.Views.FollowForm({
         userId: userId,
-        collection: InstagramClone.Collections.followees
+        collection: Minipicture.Collections.followees
       });
 
       this.$el.append(followFormView.render().$el);

@@ -1,4 +1,4 @@
-InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
+Minipicture.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.isImageCollection = options.isImageCollection;
@@ -27,7 +27,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
   toggleModal: function (event) {
     event.preventDefault();
 
-    var imageDetailView = new InstagramClone.Views.ImageDetail({
+    var imageDetailView = new Minipicture.Views.ImageDetail({
       model: this.model
     });
 
@@ -49,7 +49,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
 
   _addLikeFormBtn: function () {
 
-    var likeFormBottonView = new InstagramClone.Views.LikeFormView({
+    var likeFormBottonView = new Minipicture.Views.LikeFormView({
       collection: this.model.likes(),
       image: this.model
     });
@@ -58,7 +58,7 @@ InstagramClone.Views.ImagesIndexItem = Backbone.CompositeView.extend({
   },
 
   _addCommentShowBtn: function () {
-    var commentShowBottonView = new InstagramClone.Views.CommentShowView({
+    var commentShowBottonView = new Minipicture.Views.CommentShowView({
       image: this.model
     });
 
