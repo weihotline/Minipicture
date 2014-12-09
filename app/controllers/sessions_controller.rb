@@ -13,6 +13,8 @@ class SessionsController < ApplicationController
         params[:user][:password]
       )
     else
+      flash[:notice] ||= []
+      flash[:notice] << 'Welcome, Guest! These photos of my nephew are for demonstration purposes only. Feel free to register a new user account.'
       @user = guest_user
     end
 
