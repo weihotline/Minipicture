@@ -1,5 +1,5 @@
 ## Welcome to Minipicture.me
-This is a Rails application that is inspired by the famous existing image sharing website, [Instagram](http://instagram.com/). The existing Instagram website is great, but there are certainly more improvements to make (e.g., uploading images from the website, browsing images in a slideshow fashion).
+This is a Rails application that is inspired by the famous existing image sharing website, [Instagram](http://instagram.com/). The existing Instagram website is great, but there are certainly more improvements to make (e.g., uploading images from the website, browsing images in a slideshow fashion, and many cool features).
 
 ## Live Demo
 * [Minipicture](http://minipicture.me)
